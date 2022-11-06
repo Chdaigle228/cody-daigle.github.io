@@ -29,5 +29,7 @@
 ## Portfolio page Instruction 
 1) You only need to complete up to TODO 5
 
-## How to save to github
+## How to save work to github
 1) git add -A
+2) git commit -m "create description of commit"
+3) git push
