@@ -21,6 +21,14 @@
 
 function reverseString(input) {
     // YOUR CODE GOES BELOW HERE //
+    // need to separate string letters individually
+    var str = input.split("");
+    // reverse the arrangment of the arrat from split
+    var rev = str.reverse();
+    // join everything back together, but in reverse from rev
+    var join = rev.join("");
+    //should return the reversal
+    return join;
     
     
     
