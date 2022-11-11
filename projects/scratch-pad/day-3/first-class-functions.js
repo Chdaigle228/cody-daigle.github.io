@@ -13,10 +13,13 @@
  */
 function createGreaterThanFilter(base) {
     // YOUR CODE BELOW HERE //
-    
-    
-    
-    
+    function newFilter(num){
+        return num > base;
+    } ; // <-- function assignment needs semicolon, but a declaration does not.
+    return newFilter;
+    //return function that...
+
+            //test whether value is > base (test = returns true, else returns false)
     // YOUR CODE ABOVE HERE //
 }
 
@@ -27,9 +30,12 @@ function createGreaterThanFilter(base) {
  */
 function createLessThanFilter(base) {
     // YOUR CODE BELOW HERE //
+    function less(num){
+        return num < base;
+    };
+    return less;
     
-    
-    
+    //the same as above, essentially. Requires a function to pass
     
     // YOUR CODE ABOVE HERE //
 }
@@ -40,10 +46,10 @@ function createLessThanFilter(base) {
  * character.
  */
 function createStartsWithFilter(startsWith) {
-    // YOUR CODE BELOW HERE //
-    
-    
-    
+    // YOUR CODE BELOW HERE //\
+    return function(char){
+        return char[0] === startsWith;
+    };
     
     // YOUR CODE ABOVE HERE //
 }
@@ -69,7 +75,7 @@ function createEndsWithFilter(endsWith) {
  * TIP: You need to loop over the Strings, right? We need to pass each String to 
  * the modify Function, but we need to collect the results into some collection.
  */
-function modifyStrings(strings, modify) {
+function modifyStrings(strings, modify) { // takes function as an argument
     // YOUR CODE BELOW HERE //
     
     

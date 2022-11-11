@@ -12,7 +12,9 @@
  */
 function printArrayValues(array) {
   // YOUR CODE BELOW HERE //
-  
+  for (var i = 0; i < array.length; i++){
+console.log(array[i]);
+  }
   
   
   
@@ -25,10 +27,9 @@ function printArrayValues(array) {
  */
 function printArrayValuesInReverse(array) {
   // YOUR CODE BELOW HERE //
-  
-  
-  
-  
+  for (var j = array.length - 1; j >=0; j--){
+    console.log(array[j]);
+  }
   // YOUR CODE ABOVE HERE //
 }
 
@@ -37,9 +38,11 @@ function printArrayValuesInReverse(array) {
  */
 function getObjectKeys(object) {
   // YOUR CODE BELOW HERE //
-  
-  
-  
+  //use Object.keys() to turn into an array
+  Object.keys(object)
+  //return to check work
+  return Object.keys(object);
+ 
   
   // YOUR CODE ABOVE HERE //
 }
@@ -50,6 +53,10 @@ function getObjectKeys(object) {
  */
 function printObjectKeys(object) {
   // YOUR CODE BELOW HERE //
+  for (var key in object){
+    console.log(key);
+ 
+  }
   
   
   
@@ -62,8 +69,8 @@ function printObjectKeys(object) {
  */
 function getObjectValues(object) {
   // YOUR CODE BELOW HERE //
-  
-  
+  //use Object.values(object);
+  return Object.values(object);
   
   
   // YOUR CODE ABOVE HERE //
@@ -75,8 +82,9 @@ function getObjectValues(object) {
  */
 function printObjectValues(object) {
   // YOUR CODE BELOW HERE //
-  
-  
+  for (var values in object){
+    console.log(object[values]);
+  }
   
   
   // YOUR CODE ABOVE HERE //
@@ -87,10 +95,14 @@ function printObjectValues(object) {
  */
 function getObjectLength(object) {
   // YOUR CODE BELOW HERE //
+  //define length of keys
+  const k = Object.keys(object).length;
+  //define length of values
+  //add keys and values together
+  //return sum of keys/values within object
   
-  
-  
-  
+  return k;
+
   // YOUR CODE ABOVE HERE //
 }
 
@@ -99,11 +111,15 @@ function getObjectLength(object) {
  * print its values using console.log()?
  */
 function printObjectValuesInReverse(object) {
-  // YOUR CODE BELOW HERE //
-  
-  
-  
-  
+  //you cannot reverse values in an object so it needs to be an array
+  //turn object into array
+  var obj = Object.values(object);
+  //determine length of values within object
+  for (var i = obj.length - 1; i >= 0; i--){
+    
+    //print values within array in reverse
+    console.log(obj[i]);
+  }
   // YOUR CODE ABOVE HERE //
 }
 
