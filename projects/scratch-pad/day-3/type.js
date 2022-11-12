@@ -112,7 +112,18 @@ function isCollection(value) {
 function typeOf(value) {
     // YOUR CODE BELOW HERE //
 // given the value return the datatype as a string
-for 
+switch (value) {
+    case 'string':
+    case 'null':
+    case 'object':
+    case 'undefined':
+    case 'number':
+    case 'boolean':
+    case 'function': //Why can I not use that in a switch?
+    case 'array':
+    case 'date': // I think function makes this not work
+    console.log(typeof value);    
+}    return value;
     
     // YOUR CODE ABOVE HERE //
 }

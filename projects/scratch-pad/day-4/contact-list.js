@@ -79,14 +79,15 @@ function makeContactList() {
         printAllContactNames: function(){
             var output = "";
           for(var i = 0; i < contacts.length; i++){
+            var contact = contacts[i];
             //iterates throug the list of contacts
              if(i === contacts.length - 1){
                 //checks if it is on the last contact
-                 output + contacts //["nameFirst"] + ' ' + contacts["nameLast"];
+                 output += contact["nameFirst"] + ' ' + contact["nameLast"];
                 
                 //else print name with \n             
             } else {
-                output + contacts //["nameFirst"] + ' ' + contacts["nameLast\n"];
+                output += contact["nameFirst"] + ' ' + contact["nameLast"] + "\n";
             }
         } return output;
        }
