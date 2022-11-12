@@ -111,22 +111,43 @@ function isCollection(value) {
  */ 
 function typeOf(value) {
     // YOUR CODE BELOW HERE //
-// given the value return the datatype as a string
-switch (value) {
-    case 'string':
-    case 'null':
-    case 'object':
-    case 'undefined':
-    case 'number':
-    case 'boolean':
-    case 'function': //Why can I not use that in a switch?
-    case 'array':
-    case 'date': // I think function makes this not work
-    console.log(typeof value);    
-}    return value;
+    //attempt for loop for type of
+    //if value is an array then print in a string
+    //if value is a date then print as a string
+    //else print it as an object
+    var output = "";
+    if(typeof value === isArray(value)){
+        output += Array;
+    } else if (typeof value instanceof Date){
+        output += Date;
+    } else if (typeof value === 'object'){
+        output = object
+    } else {
+        output += "function"}
+     } return output;
+
+
+//     var javascriptDatatype = typeof(value);
+// // given the value return the datatype as a string
+// switch (value) {
+//     case 'object':
+//         return handleObject(value);
+//     case 'date': 
+//     console.log(typeof value);    
+//     return javascriptDatatype;
+// }    return value;
+
+// function handleObject(value) {
+//     // Array
+//     if (Array.isArray(value)) {
+//         return "array"
+//     }
+//     // Object
+//     return "object"
+// }
     
-    // YOUR CODE ABOVE HERE //
-}
+//     // YOUR CODE ABOVE HERE //
+ }
 
 // DON'T REMOVE THIS CODE //////////////////////////////////////////////////////
 if((typeof process !== 'undefined') &&
