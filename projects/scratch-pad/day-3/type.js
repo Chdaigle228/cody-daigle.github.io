@@ -115,16 +115,20 @@ function typeOf(value) {
     //if value is an array then print in a string
     //if value is a date then print as a string
     //else print it as an object
-    var output = "";
-    if(typeof value === isArray(value)){
-        output += Array;
-    } else if (typeof value instanceof Date){
-        output += Date;
-    } else if (typeof value === 'object'){
-        output = object
-    } else {
-        output += "function"}
-     } return output;
+
+
+ if(Array.isArray(value)){
+    return "array";
+ } else if (value === null){
+    return "null";
+ } else if (value instanceof Date){
+    return "date"
+ }else {
+    return typeof(value);
+ }
+ 
+
+
 
 
 //     var javascriptDatatype = typeof(value);
@@ -147,7 +151,7 @@ function typeOf(value) {
 // }
     
 //     // YOUR CODE ABOVE HERE //
- }
+}
 
 // DON'T REMOVE THIS CODE //////////////////////////////////////////////////////
 if((typeof process !== 'undefined') &&
