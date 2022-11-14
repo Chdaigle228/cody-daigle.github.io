@@ -46,9 +46,11 @@ function createLessThanFilter(base) {
  * character.
  */
 function createStartsWithFilter(startsWith) {
-    // YOUR CODE BELOW HERE //\
-    var str = "";
-
+    // YOUR CODE BELOW HERE //
+return function(char){              //first char as a function
+    return char.toLowerCase()[0] === startsWith.toLowerCase(); //compare the first with both lower cases
+}; 
+        
     
     // YOUR CODE ABOVE HERE //
 }
@@ -60,7 +62,9 @@ function createStartsWithFilter(startsWith) {
  */
 function createEndsWithFilter(endsWith) {
     // YOUR CODE BELOW HERE //
-    
+    return function(end){              
+        return end.toLowerCase().slice(-1) === endsWith.toLowerCase(); //slice(-1) signals the last index
+    };
     
     
     
@@ -76,6 +80,8 @@ function createEndsWithFilter(endsWith) {
  */
 function modifyStrings(strings, modify) { // takes function as an argument
     // YOUR CODE BELOW HERE //
+    return strings.map(modify); //use map to access all elements within a string
+    
     
     
     
@@ -94,9 +100,9 @@ function modifyStrings(strings, modify) { // takes function as an argument
  */
 function allStringsPass(strings, test) {
     // YOUR CODE BELOW HERE //
-    
-    
-    
+var testFailed = strings.some((letter) => {return !test(letter);});
+return !testFailed;
+
     
     // YOUR CODE ABOVE HERE //
 }
