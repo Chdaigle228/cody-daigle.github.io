@@ -109,15 +109,35 @@ var cat = {
   name: 'Ambrose', 
   noises: ['meow', 'chirp', 'sneeze', 'swat']
 } 
+animals.push(cat);
 var panda = {
   species: 'panda', 
   name: 'Jerry', 
   noises: ['munch', 'huff', 'sneeze', 'snore']
 } 
+animals.push(panda);
+console.log(animals);
 
 //////////////////////////////////////////////////////////////////////
 // Step 7 - Making Friends ///////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
+// 1. [x ] Choose a data structure for this **list** of friends.
+// 2. [ x] Write a comment in your code that explains why you chose this data structure.
+// team chose an array to easily map out friends list
+// 3. [ x] Create a variable called `friends` and assign it to the data structure that you chose.
+var friends = [];
+// 4. [ ] Take a look at the documentation for `Math.random` here: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
+// 5. [ ] Write a function called `getRandom` that takes our `animals` array and returns  a random `index` of the input array, using `Math.random`
+function getRandom(){
+  return Math.floor(Math.random() * animals.length);
+} 
+// 6. [ ] Using a random index from this function that you just created, get a random animal and add its `name` to `friends`.
+friends.push(animals[getRandom(animals)].name);
+animals[getRandom(animals)]['friends'] = friends;
+// 7. [ ] `console.log` `friends`.
+console.log(friends);
+// 8. [ ] Using **bracket notation**, add the `friends` list as a **property** also named `friends` on one of the animals in the `animals` array
+// 9. [ ] `console.log` your work.
 
 
 
