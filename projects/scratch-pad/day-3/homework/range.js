@@ -24,11 +24,17 @@
 function range(start, end) {
     // YOUR CODE GOES BELOW HERE //
     let arr = [];
-    for (let i = start; i <= end; i++){
-        arr.push(i);
-        return arr;
-    }; 
-    console.log(range(1, 5));
+    if (start > end){
+        for (let i = start; i >= end; i--){
+            arr.push(i);
+        }
+    } else {
+        for (let i = start; i <= end; i++){
+            arr.push(i);
+        } 
+    }  
+
+return arr;
     // YOUR CODE GOES ABOVE HERE //
 }
 
