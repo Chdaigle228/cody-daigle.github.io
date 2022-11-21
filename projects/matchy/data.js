@@ -89,20 +89,20 @@ animals.push(animal);
 //log the animals
 console.log(animals);
 var duck = {
-  species: 'duck', 
+  species: 'Duck', 
   name: 'Gerome', 
   noises: ['quack', 'honk', 'sneeze', 'woosh']
 } 
 animals.push(duck);
 console.log(animals);
 var cat = {
-  species: 'cat', 
+  species: 'Cat', 
   name: 'Ambrose', 
   noises: ['meow', 'chirp', 'sneeze', 'swat']
 } 
 animals.push(cat);
 var panda = {
-  species: 'panda', 
+  species: 'Panda', 
   name: 'Jerry', 
   noises: ['munch', 'huff', 'sneeze', 'snore']
 } 

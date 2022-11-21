@@ -37,29 +37,70 @@ function search(arr, str){
 //     - If an animal with that name exists within the `animals` Array, replace it's entire Object with the replacement Object.
 //     - Otherwise do nothing.
 //   2. Preview the `index.html` page to test it on the website.
-
+// animals = array
+//name = string
+// replacement = object
 function replace(animals, name, replacement){
-    //iterate over the animal array
+
+       //iterate over the animal array
     for (var i = 0; i < animals.length; i++) {
-    // check if name exists
-            if(animals[i] === name){
+        //animals[i] = is every object, not its properties
+    // check if name exists within the objects
+            if(animals[i]["name"] === name){
                 //if name exists within the animals array replace with replacement object
-                animalName.replace(i, replacement);
+               animals[i] = replacement
             } 
-    } return
+    } return null;
 }
 //////////////////////////////////////////////////////////////////////
 // Step 3 - Remove ///////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
+// ## Step 3 - Remove
+//  1. Write a function declaration called `remove` with a signature of `remove(animals, name)` that:
+//    - Takes 2 parameters, an Array of animals, and a name of an animal on which to perform a search.
+//    - If an animal with that name exists within the `animals` Array, remove it.
+//  2. Test that it works on the website.
+//animals = array
+//name is name of animal used to search
+function remove(animals, name){
+    //for loop to iterate through the array
+    for(var i = 0; i < animals.length; i++){
+        var animal = animals[i]
+        //if name exists within array's indexes
+        if(animal === name){
+            //remove from array
+           animals.splice(i, 1)
+        }
+    }
 
-
+}
 
 //////////////////////////////////////////////////////////////////////
 // Step 4 - Add ///////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
+// 1. Write a function declaration called `add` with a signature of `add(animals, animal) { //... }` that:
+//     - Takes 2 parameter, an Array of animals, and an Object representing a new animal to be added.
+//     - Checks that the animal Object has a `name` property with a length > 0.
+//     - Checks that the animal Object has a `species` property with a length > 0.
+//     - Has a **unique** name, meaning no other animals have that name.
+//     - Adds this new Object to the `animals` Array, **only** if all the other conditions pass.
+//     - Make sure it works.
 
-
-
+//animals = array
+//animal = new animal being added
+function add(animals, animal){
+    //check animal object for name property with length > 0
+    var aName = animal.name;
+    var anl = aName.length;
+    var aSpec = animal.species;
+    var ans = aSpec.length;
+    if(animal.hasOwnProperty(aName) && aName.length > 0){
+        animal.push(aName)
+    }
+    //check animal object for species property with length > 0
+    //if it has a unique name
+    //add the new object to the animals array ?ONLY? if all conditions pass
+}
 /**
  * You did it! You're all done with Matchy!
  */
