@@ -38,13 +38,13 @@ function search(arr, str){
 //     - Otherwise do nothing.
 //   2. Preview the `index.html` page to test it on the website.
 
-function replace(animalArray, animalName, animalObj){
+function replace(animals, name, replacement){
     //iterate over the animal array
-    for (var i = 0; i < animalArray.length; i++) {
+    for (var i = 0; i < animals.length; i++) {
     // check if name exists
-            if(animalArray[i] === animalName.name){
+            if(animals[i] === name){
                 //if name exists within the animals array replace with replacement object
-                animalName.replace(animalArray[i], animalObj)
+                animalName.replace(i, replacement);
             } 
     } return
 }

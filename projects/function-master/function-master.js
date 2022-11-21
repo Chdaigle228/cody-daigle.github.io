@@ -2,6 +2,8 @@
 // Function 1 - Object Values ////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
+//const { noises } = require("../matchy/data");
+
 function objectValues(object) {
 var obj = Object.values(object);
 return obj;
@@ -55,8 +57,15 @@ function capitalizeWord(string) {
 //////////////////////////////////////////////////////////////////////
 
 function capitalizeAllWords(string) {
-  
-    return word.toUpperCase() + string.join(" ");
+    //split words from array 
+    var spl = string.split(" "); //string becomes an array= spl
+    //iterate through array
+    for(var i = 0; i < spl.length; i++){
+     //capitalize letters and then add back together
+       spl[i] = spl[i][0].toUpperCase() + spl[i].substring(1); // = reassigning spl to uppercase string
+    } return spl.join(" ");
+   
+
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -64,7 +73,8 @@ function capitalizeAllWords(string) {
 //////////////////////////////////////////////////////////////////////
 
 function welcomeMessage(object) {
-
+    var welcome = object.name;
+return "Welcome " + welcome[0].toUpperCase() + welcome.slice(1) + "!";
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -72,7 +82,9 @@ function welcomeMessage(object) {
 //////////////////////////////////////////////////////////////////////
 
 function profileInfo(object) {
-
+var spec = object.species[0].toUpperCase() + object.species.slice(1);
+var sName = object.name[0].toUpperCase() + object.name.slice(1)
+return sName + " is a " + spec;
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -81,14 +93,26 @@ function profileInfo(object) {
 
 function maybeNoises(object) {
 
+if ("noises" in object && object.noises.length > 0){
+    return object.noises.join(" ");
+} else {
+    return 'there are no noises'
 }
+
+}
+
 
 //////////////////////////////////////////////////////////////////////
 // Function 10 - Has Words ///////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
 function hasWord(string, word) {
-
+var str = string.split();
+for(var i = 0; i < str.length; i++){
+    if (str[i] === word){
+        return word.join(" ");
+    }
+}
 }
 
 //////////////////////////////////////////////////////////////////////
