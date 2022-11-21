@@ -67,7 +67,7 @@ function remove(animals, name){
     for(var i = 0; i < animals.length; i++){
         var animal = animals[i]
         //if name exists within array's indexes
-        if(animal === name){
+        if(animal.name === name){
             //remove from array
            animals.splice(i, 1)
         }
@@ -90,16 +90,23 @@ function remove(animals, name){
 //animal = new animal being added
 function add(animals, animal){
     //check animal object for name property with length > 0
-    var aName = animal.name;
-    var anl = aName.length;
-    var aSpec = animal.species;
-    var ans = aSpec.length;
-    if(animal.hasOwnProperty(aName) && aName.length > 0){
-        animal.push(aName)
+    if(animal.name && animal.name.length > 0){
+        //check animal object for species property with length > 0
+       if(animal.species && animal.species.length > 0){
+        //if it has a unique name
+        var animalExists = search(animals, animal.name)
+        if(animalExists === null){
+            animals.push(animal);
+        }
+            //add the new object to the animals array ?ONLY? if all conditions pass
+       
+         
+         
+       }
     }
-    //check animal object for species property with length > 0
-    //if it has a unique name
-    //add the new object to the animals array ?ONLY? if all conditions pass
+    
+    
+    
 }
 /**
  * You did it! You're all done with Matchy!
