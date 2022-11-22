@@ -98,7 +98,6 @@ function add(animals, animal){
         if(animalExists === null){
             animals.push(animal);
         }
-            //add the new object to the animals array ?ONLY? if all conditions pass
        
          
          

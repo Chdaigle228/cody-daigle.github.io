@@ -73,8 +73,9 @@ function capitalizeAllWords(string) {
 //////////////////////////////////////////////////////////////////////
 
 function welcomeMessage(object) {
-    var welcome = object.name;
-return "Welcome " + welcome[0].toUpperCase() + welcome.slice(1) + "!";
+    let objName = object.name;
+    let objUp = objName[0].toUpperCase()
+return "Welcome " + objUp + objName.slice(1) + "!" || "Welcome " + objName[0].toLowerCase() + objName.slice(1) + "!";
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -105,31 +106,43 @@ if ("noises" in object && object.noises.length > 0){
 //////////////////////////////////////////////////////////////////////
 // Function 10 - Has Words ///////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
-
+//Should take a string of words and a word and return true if <word> is in <string of words>, otherwise return false."
 function hasWord(string, word) {
-var str = string.split();
-for(var i = 0; i < str.length; i++){
-    if (str[i] === word){
-        return word.join(" ");
+    if (string.includes(word)){
+        return true;
+    } else{
+        return false;
     }
-}
 }
 
 //////////////////////////////////////////////////////////////////////
 // Function 11 - Add Friend //////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
-
-function addFriend (name, object) {
-
+//Should take a name and an object and add the name to the object's friends array then return the object"
+/* object = {
+    friends: ['name', 'name', 'name']
 }
+*/
+function addFriend (name, object) {
+    object["friends"].push(name);
+    return object;
+} 
 
 //////////////////////////////////////////////////////////////////////
 // Function 12 - Is Friend ///////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
-
+//Should take a name and an object and return true if <name> is a friend of <object> and false otherwise"
 function isFriend(name, object) {
 
+        if (object.friends && object["friends"].includes(name)){
+        return true;
+        
+    } return false;
 }
+// if (object && object.friends && object.friends.include(name)) {
+//     return true;
+// }
+// return false;
 
 //////////////////////////////////////////////////////////////////////
 // Function 13 - Non-Friends /////////////////////////////////////////
