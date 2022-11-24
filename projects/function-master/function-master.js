@@ -75,7 +75,7 @@ function capitalizeAllWords(string) {
 function welcomeMessage(object) {
     let objName = object.name;
     let objUp = objName[0].toUpperCase()
-return "Welcome " + objUp + objName.slice(1) + "!" || "Welcome " + objName[0].toLowerCase() + objName.slice(1) + "!";
+return "Welcome " + objUp + objName.slice(1) + "!";
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -147,31 +147,92 @@ function isFriend(name, object) {
 //////////////////////////////////////////////////////////////////////
 // Function 13 - Non-Friends /////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
+//"nonFriends() : Should take a name and a list of people, and return a list of all the names that <name> is not friends with"
+// var data = [
+//     {name: "Jimmy", friends:["Sara", "Liza"]},
+//     {name: "Bob", friends:[]},
+//     {name: "Liza", friends: ["Jimmy"]},
+//     {name: "Sara", friends: ["Jimmy"]}
 
 function nonFriends(name, array) {
+    //open array to add all names
+    var list = [];
+    //open array to add frenemies
+    var notFriends = [];
+    //when iterating if name matches then move on
+    var stillFriends = null;
+    for (var i = 0; i < array.length; i++){
+        if(name === array[i].name){
+            stillFriends = array[i];
+        }else {
+            list.push(array[i].name);
+        }
+    }
+        for (var n = 0; n < list.length; n++){
+            if(stillFriends["friends"].indexOf(list[n]) === -1){
+                 notFriends.push(list[n]);
+        }
+    } return notFriends;
+
+   
 
 }
 
 //////////////////////////////////////////////////////////////////////
 // Function 14 - Update Object ///////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
+// /* global updateObject */
+// QUnit.test("updateObject() : Should take an object, a key and a value. Should update the property <key> on <object> with new <value>. If <key> does not exist on <object> create it.", function(assert){
+//     var data = {a: "one", b: "two", "hokey": false};
+//     assert.deepEqual(updateObject(data, "b", "three"), {a:"one", b:"three", hokey: false});
+//     var data = {a: "one", b: "two", "hokey": false};
+//     assert.deepEqual(updateObject(data, "ponies", "yes"), {a:"one", b:"two", hokey: false, ponies: "yes"});
+//     var data = {a: "one", b: "two", "hokey": false};
+//     assert.deepEqual(updateObject(data, "a", Infinity), {a:Infinity, b:"two", hokey: false});
+//   });
+
 
 function updateObject(object, key, value) {
-
-}
+    if(object[key] = value){
+    return object;
+    }
+  }
 
 //////////////////////////////////////////////////////////////////////
 // Function 15 - Remove Properties ///////////////////////////////////
 //////////////////////////////////////////////////////////////////////
+  //Should take an object and an array of strings. Should remove any properties on <object> that are listed in <array>", function(assert){
+    // var data = {a: "one", b: "two", "hokey": false};
+    // removeProperties(data, ["a","hokey"]);
+    // assert.deepEqual(data, {b: "two"});
+/*var object = {}
+array: ['str1', 'str2', 'str3'];
 
+*/
 function removeProperties(object, array) {
+      //get properties that are in the object (index only in for loop?)
+    for(var i = 0; i < object.length; i++){
+        //[i] should be the indexes that are within object
+        var obj = object[i];
+        //get items within the array
+        for(var a = 0; a < array.length; a++){
+            //[a] should be the indexes that are in the array
+            var arr = array[a];
+         //check if arr[a] is the same as obj[i]
+         if (array.forEach(item)){
+            delete obj;
+            } 
+        }
+    } return;
 
 }
+//tried object.some() (.some() stops on the first true, but can I make it continue to iterate with the for loop?)
+//tried object.indexOf(i) === aray.indexOf(a)
 
 //////////////////////////////////////////////////////////////////////
 // Function 16 - Dedup ///////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
-
+//Should take an array and return an array with all the duplicates removed"
 function dedup(array) {
 
 }
