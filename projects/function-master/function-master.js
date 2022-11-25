@@ -220,11 +220,6 @@ function removeProperties(object, array) {
     }
 }
 
-    // for(i = 0; i < array.length; i++){
-    //     if(object[array[i]]){
-    //         delete object[array[i]];
-    //     }
-    // } return;
 
 
 //tried object.some() (.some() stops on the first true, but can I make it continue to iterate with the for loop?)
