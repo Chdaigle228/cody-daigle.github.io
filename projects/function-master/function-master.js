@@ -210,22 +210,23 @@ array: ['str1', 'str2', 'str3'];
 
 */
 function removeProperties(object, array) {
-      //get properties that are in the object (index only in for loop?)
-    for(var i = 0; i < object.length; i++){
-        //[i] should be the indexes that are within object
-        var obj = object[i];
-        //get items within the array
-        for(var a = 0; a < array.length; a++){
-            //[a] should be the indexes that are in the array
-            var arr = array[a];
-         //check if arr[a] is the same as obj[i]
-         if (array.forEach(item)){
-            delete obj;
-            } 
+    var keys = Object.keys(object);
+    for(var i = 0; i < keys.length; i++){
+        for(var j = 0; j < array.length; j++){
+            if(keys[i] === array[j]){
+                delete object[keys[i]]
+            }
         }
-    } return;
-
+    }
 }
+
+    // for(i = 0; i < array.length; i++){
+    //     if(object[array[i]]){
+    //         delete object[array[i]];
+    //     }
+    // } return;
+
+
 //tried object.some() (.some() stops on the first true, but can I make it continue to iterate with the for loop?)
 //tried object.indexOf(i) === aray.indexOf(a)
 
@@ -234,7 +235,12 @@ function removeProperties(object, array) {
 //////////////////////////////////////////////////////////////////////
 //Should take an array and return an array with all the duplicates removed"
 function dedup(array) {
-
+    array.sort();
+    for(var i = array.length -1; i > 0; i--){
+        if(array[i] === array[i - 1]){
+            array.splice(i, 1)
+        }
+    } return array;
 }
 
 //////////////////////////////////////////////////////////////////////
