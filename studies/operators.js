@@ -5,6 +5,7 @@
  * operands they require. For instance Unary operators only work with one value, Binary operators work with two, and Ternary works 
  * with three.
  */
+
 /**
  * Assignment Operators:
  * Assigns a value to its first operand based on the value of its second with a single equals(=)
@@ -14,6 +15,7 @@
 x =5;
 x += 1; //<- which means x is EQUAL to x PLUS 1
 console.log(x); //<- Logs 6 to the console.
+
 /**
  * Arithmetic Operators:
  * These Operators will take a numerical value as it's Operand and return a numerical value. 
@@ -23,6 +25,7 @@ console.log(x); //<- Logs 6 to the console.
 y = 10;
 y++; //<- y++ (or 10 + 1) is an example of the short hand using the increment to increase y's value by 1
 console.log(y); //<- This will log 11 to the console.
+
 /**
  * Logical Operators:
  * Typically Logical Operators are used with Boolean values and will return a Boolean value. However some Logical Operators can also
@@ -47,8 +50,19 @@ c = a !== b //< c's assignment equals a boolean based off if a is NOT EQUAL to b
 console.log(c) //<-- Logs true to the console.
 /**
  * Unary Operators:
+ * This operator only takes in one Operand. It acts upon a single Operand, in an expression or statement, and returns a value.
+ * Many Operators actually have Unary Operators as well.
+ * Some examples: delete, typeof, -, + 
  */
+var who = "Me";
+typeof(who); //<- typeof Operator will return the datatype it is called with. It will log 'string' to the console.
 
 /**
  * Ternary Operators:
+ * Also called a Conditional Operator and it is the only one that takes three operands. It can have one of two values 
+ * based on a condition. It can be seen as type of if-else statement. Where ever a standard Operator is
+ * used, a Ternary Operator can be as well.
  */
+ //The syntax is: 
+ theCondition ? firstValue : secondValue //So if theCondition is true then it's value becomes firstValue, 
+                                         //else it becomes secondValue.
