@@ -83,15 +83,13 @@ _.first = function(array, number){
     //check if array is NOT an array
     if(Array.isArray(array) === false){
         return [];
-    } 
-    if(number === false || typeof number !== 'number'){
-        return array[0];
- } for(var i = 0; i < number; i++){
-    empty.push(array[i])
-} if(number > array.length){
-    return array;
-}
-return empty;
+        } if(number === false || typeof number !== 'number'){
+            return array[0];
+      }   for(var i = 0; i < number; i++){
+            empty.push(array[i]);
+    }   if(number > array.length){
+            return array;
+  } return empty;
     
 }
 
