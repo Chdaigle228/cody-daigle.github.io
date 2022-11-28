@@ -45,6 +45,18 @@ _.identity = function(value){
 * _.typeOf([1,2,3]) -> "array"
 */
 
+_.typeOf = function(value){
+    if(Array.isArray(value)){
+        return "array";
+     } else if (value === null){
+        return "null";
+     } else if (value instanceof Date){
+        return "date"
+     }else {
+        return typeof(value);
+     }
+}
+
 
 /** _.first
 * Arguments:
@@ -64,6 +76,24 @@ _.identity = function(value){
 *   _.first(["a", "b", "c"], 2) -> ["a", "b"]
 */
 
+
+
+_.first = function(array, number){
+    var empty = [];
+    //check if array is NOT an array
+    if(Array.isArray(array) === false){
+        return [];
+    } 
+    if(number === false || typeof number !== 'number'){
+        return array[0];
+ } for(var i = 0; i < number; i++){
+    empty.push(array[i])
+} if(number > array.length){
+    return array;
+}
+return empty;
+    
+}
 
 /** _.last
 * Arguments:
