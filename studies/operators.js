@@ -65,4 +65,4 @@ typeof(who); //<- typeof Operator will return the datatype it is called with. It
  */
  //The syntax is: 
  theCondition ? firstValue : secondValue //So if theCondition is true then it's value becomes firstValue, 
-                                         //else it becomes secondValue.
+//                                                          else it becomes secondValue.
