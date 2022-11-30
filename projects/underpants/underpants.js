@@ -111,6 +111,20 @@ _.first = function(array, number){
 *   _.last(["a", "b", "c"], 2) -> ["b", "c"]
 */
 
+_.last = function(array, number){
+    var empty = [];
+    //check if array is NOT an array
+    if(Array.isArray(array) === false){
+        return [];
+        } if(number === false || typeof number !== 'number'){
+            return array[array.length - 1];
+      }   for(var i = number.length - 1; i > number; i--){
+            empty.push(array[i]);
+    }   if(number > array.length){
+            return array;
+  } return empty;
+    
+}
 
 /** _.indexOf
 * Arguments:
@@ -127,7 +141,18 @@ _.first = function(array, number){
 *   _.indexOf(["a","b","c"], "c") -> 2
 *   _.indexOf(["a","b","c"], "d") -> -1
 */
-
+_.indexOf = function(array, value){
+    //iterate through array to
+    for(var i = 0; i < array.length; i++){
+        //if array[i] has value in any index
+        if(array[i].includes(value)){
+            //return that index
+            return i;
+        }
+    }
+    //if value is not in array return -1
+    return -1;
+}
 
 /** _.contains
 * Arguments:
@@ -144,6 +169,10 @@ _.first = function(array, number){
 *   _.contains([1,"two", 3.14], "two") -> true
 */
 
+_.contains = function(array, value){
+    //for(var i = 0; i < array.length; i++){
+        return array.includes(value) ? true : false;
+    }
 
 /** _.each
 * Arguments:
@@ -186,6 +215,16 @@ _.each = function(collection, func){
 * Examples:
 *   _.unique([1,2,2,4,5,6,5,2]) -> [1,2,4,5,6]
 */
+
+_.unique = function(array){
+    //return a new array of all elements from <array> with duplicates removed
+    //create a new array
+
+    
+     var noDuplicates = [...new Set(array)]
+        return noDuplicates;
+    
+}
 
 
 /** _.filter
@@ -289,6 +328,30 @@ _.each = function(collection, func){
 *   _.every([1,2,3], function(e){return e % 2 === 0}) -> false
 */
 
+_.every = function(collection, test){
+    //determine if collection is array
+    if(Array.isArray(collection)){
+        //determine if test has not received a value
+        if(test === undefined){
+            for(let i = 0; i < collection.length; i++){
+                if(!array[i]){ //determine if array[i] is falsey
+                    return false;
+                }
+            }
+        } else {
+
+        }
+        //else it has
+    } else { //else it's an object
+        //determine if test has not received
+        if (test === undefined){
+
+        }else{
+
+        }
+        //else it has
+}
+}
 
 /** _.some
 * Arguments:
