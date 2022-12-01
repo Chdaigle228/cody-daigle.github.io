@@ -110,20 +110,24 @@ _.first = function(array, number){
 *   _.last(["a", "b", "c"], 1) -> "c"
 *   _.last(["a", "b", "c"], 2) -> ["b", "c"]
 */
-
-_.last = function(array, number){
-    var empty = [];
-    //check if array is NOT an array
-    if(Array.isArray(array) === false){
+_.last = function(array, num){
+    //determine if array is an array
+    if(!Array.isArray(array)){
+    //return empty array
         return [];
-        } if(number === false || typeof number !== 'number'){
-            return array[array.length - 1];
-      }   for(var i = number.length - 1; i > number; i--){
-            empty.push(array[i]);
-    }   if(number > array.length){
-            return array;
-  } return empty;
-    
+    //determine if number is not given
+    }if(num === undefined){
+    //return last element
+        return array[array.length - 1];
+    //determine if number is greater than the arrays length
+    }if(num > array.length){
+    return array;
+    //determine if number is a negative number
+    }if(num < 0){
+    //return empty array
+    return [];
+    //return array sliced
+    }return array.slice(1);
 }
 
 /** _.indexOf
@@ -218,8 +222,16 @@ _.each = function(collection, func){
 
 _.unique = function(array){
     //return a new array of all elements from <array> with duplicates removed
-    var noDuplicates = [...new Set(array)]
-        return noDuplicates;
+    var newArray = [];
+    for(let i = 0; i < array.length; i++){
+       if(newArray.indexOf(array[i]) === -1){
+           newArray.push(array[i]);
+       }
+    }
+      return newArray;
+
+    // var noDuplicates = [...new Set(array)]
+    //     return noDuplicates;
     
 }
 
@@ -351,7 +363,14 @@ _.map = function(collection, func){
 *   _.pluck([{a: "one"}, {a: "two"}], "a") -> ["one", "two"]
 */
 
-
+_.pluck = function(array, property){
+    let arr = [];
+    //get index of elements in array
+    for(let i = 0; i < array.length; i++){
+        //push property for every index
+        arr.push(array[i][property])
+    } return arr;
+}
 /** _.every
 * Arguments:
 *   1) A collection
@@ -373,26 +392,34 @@ _.map = function(collection, func){
 *   _.every([1,2,3], function(e){return e % 2 === 0}) -> false
 */
 
+
 _.every = function(collection, test){
     //determine if collection is array
     if(Array.isArray(collection)){
-        //determine if test has not received a value
+        //determine if test has not received a value aka undefined
         if(test === undefined){
+            //loop over collection for index
             for(let i = 0; i < collection.length; i++){
-                if(!array[i]){ //determine if array[i] is falsey
+                 //determine if collection[i] is falsey
+                if(!collection[i]){
                     return false;
                 }
             }
         } else {
-
+             return flag
         }
         //else it has
     } else { //else it's an object
         //determine if test has not received
         if (test === undefined){
-
+            for(var key in collection){
+                if(!collection[key]){
+                    return false
+                }
+                
+            }
         }else{
-
+            return true;
         }
         //else it has
 }
@@ -419,6 +446,37 @@ _.every = function(collection, test){
 *   _.some([1,2,3], function(e){return e % 2 === 0}) -> true
 */
 
+_.some = function(collection, func){
+    //call func if its an array
+    if(Array.isArray(collection)){
+    //check if func value is true with an element
+        for(var i = 0; i < collection.length; i++){
+        let arr = func(collection[i], i, collection);
+            if(arr === true || arr === undefined){
+                return true;
+        }   else{
+                return false;
+        }
+    }
+    //call func if its an object
+} else{
+    let obj = func(collection[key], i, collection);
+    for(var key in collection){
+        if(obj === true || obj === undefined){
+            return true;
+        } else{
+            return false;
+      }
+    }
+  }
+
+}
+
+//check if func value is true with an element
+//check if false
+//return if false for all elements
+//if no func is given then return true
+//otherwise return false
 
 /** _.reduce
 * Arguments:
@@ -442,7 +500,7 @@ _.every = function(collection, test){
 _.reduce = function(array, func, seed){
     //create result variable
     let result;
-//determin if see did not get a value
+//determin if seed did not get a value
 if(seed === undefined){ // undefined is a falsey value
     result = array[0];
     for (let i = 1; i < array.length; i++){
