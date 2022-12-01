@@ -329,16 +329,16 @@ _.partition = function(array, func){
 
 _.map = function(collection, func){
     let arr = [];
-    for(let i = 0; i < collection.length; i++){
-        if(Array.isArray(collection)){
+    if(Array.isArray(collection)){
+        for(let i = 0; i < collection.length; i++){
             arr.push(func(collection[i], i, collection));
-        } else {
-            for(var key in collection){
-                arr.push(collection[key])
-            }
+        } 
+    } else {
+        for(var key in collection){
+             arr.push(func(collection[key], key, collection));
         }
-    }
-}
+    } return arr;
+}  
 
 /** _.pluck
 * Arguments:
