@@ -241,8 +241,13 @@ _.unique = function(array){
 */
 
 _.filter = function(array, func){
-
-}
+    let arr = [];
+for(let i = 0; i < array.length; i++){
+    if(func(array[i], i, array) === true){ //commas not brackets
+         arr.push(array[i]);
+    }
+  } return arr;
+};
 
 /** _.reject
 * Arguments:
@@ -257,9 +262,19 @@ _.filter = function(array, func){
 *   _.reject([1,2,3,4,5], function(e){return e%2 === 0}) -> [1,3,5]
 */
 
-_.reject = function(){
-    
-}
+_.reject = function(array, func){ //inverse of filter so must be === false
+    //need new array
+    let arr = [];
+    //iterate through array
+for(let i = 0; i < array.length; i++){
+    //check if the element, it's index, <array> is NOT in the array
+    if(func(array[i], i, array) === false){ //commas not brackets
+        //push element into the new array for each iteration
+         arr.push(array[i]);
+    }
+    //return open array
+  } return arr;
+};
 
 /** _.partition
 * Arguments:
@@ -280,9 +295,21 @@ _.reject = function(){
 }
 */
 
-_.partition = function(){
-    
-}
+_.partition = function(array, func){
+    //create new array
+    let arr = [];
+    let arr1 = [];
+    let arr2 = [];
+    for(let i = 0; i < array.length; i++){
+        if(func(array[i], i, array) === true){
+            arr1.push(array[i]);
+        } if(func(array[i], i, array) === false){
+            arr2.push(array[i]);
+        } 
+     } let sub = [...arr, ...[arr1], ...[arr2]];
+     return sub;
+  };
+
 
 /** _.map
 * Arguments:
@@ -300,6 +327,18 @@ _.partition = function(){
 *   _.map([1,2,3,4], function(e){return e * 2}) -> [2,4,6,8]
 */
 
+_.map = function(collection, func){
+    let arr = [];
+    for(let i = 0; i < collection.length; i++){
+        if(Array.isArray(collection)){
+            arr.push(func(collection[i], i, collection));
+        } else {
+            for(var key in collection){
+                arr.push(collection[key])
+            }
+        }
+    }
+}
 
 /** _.pluck
 * Arguments:
