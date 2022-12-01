@@ -218,10 +218,7 @@ _.each = function(collection, func){
 
 _.unique = function(array){
     //return a new array of all elements from <array> with duplicates removed
-    //create a new array
-
-    
-     var noDuplicates = [...new Set(array)]
+    var noDuplicates = [...new Set(array)]
         return noDuplicates;
     
 }
@@ -243,6 +240,9 @@ _.unique = function(array){
 *   use _.each in your implementation
 */
 
+_.filter = function(array, func){
+
+}
 
 /** _.reject
 * Arguments:
@@ -257,6 +257,9 @@ _.unique = function(array){
 *   _.reject([1,2,3,4,5], function(e){return e%2 === 0}) -> [1,3,5]
 */
 
+_.reject = function(){
+    
+}
 
 /** _.partition
 * Arguments:
@@ -277,6 +280,9 @@ _.unique = function(array){
 }
 */
 
+_.partition = function(){
+    
+}
 
 /** _.map
 * Arguments:
@@ -394,6 +400,25 @@ _.every = function(collection, test){
 *   _.reduce([1,2,3], function(previousSum, currentValue, currentIndex){ return previousSum + currentValue }, 0) -> 6
 */
 
+_.reduce = function(array, func, seed){
+    //create result variable
+    let result;
+//determin if see did not get a value
+if(seed === undefined){ // undefined is a falsey value
+    result = array[0];
+    for (let i = 1; i < array.length; i++){
+        //if no seed is passed in then it starts at first index
+        //             /current value of result/, /current array item/, /current index/, /array/
+        result = func(result, array[i], i, array);
+    }
+} else { // else it did
+    result = seed;
+    for (let i = 1; i < array.length; i++){
+      //             /current value of result/, /current array item/, /current index/, /array/
+        result = func(result, array[i], i, array)
+    }
+ } return result;
+};
 
 /** _.extend
 * Arguments:
