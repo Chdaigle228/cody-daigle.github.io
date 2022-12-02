@@ -528,7 +528,7 @@ if(seed === undefined){ // undefined is a falsey value
     }
 } else { // else it did
     result = seed;
-    for (let i = 1; i < array.length; i++){
+    for (let i = 0; i < array.length; i++){
       //             /current value of result/, /current array item/, /current index/, /array/
         result = func(result, array[i], i, array)
     }
@@ -549,6 +549,11 @@ if(seed === undefined){ // undefined is a falsey value
 *   _.extend(data, {b:"two"}); -> data now equals {a:"one",b:"two"}
 *   _.extend(data, {a:"two"}); -> data now equals {a:"two"}
 */
+
+_.extend = function(object1, object2, output = {}){ //output = {} is accounting for more possible objects 'default
+let newObj = Object.assign(object1, object2, output); //assign object2 and output copy into object1
+    return newObj;
+};
 
 //////////////////////////////////////////////////////////////////////
 // DON'T REMOVE THIS CODE ////////////////////////////////////////////
