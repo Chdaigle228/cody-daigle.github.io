@@ -393,37 +393,44 @@ _.pluck = function(array, property){
 */
 
 
-_.every = function(collection, test){
-    //determine if collection is array
-    if(Array.isArray(collection)){
-        //determine if test has not received a value aka undefined
-        if(test === undefined){
-            //loop over collection for index
+_.every = function(collection, func){
+    //check for undefined
+    if(func === undefined ){
+        //check if collection is array
+        if(Array.isArray(collection)){
             for(let i = 0; i < collection.length; i++){
-                 //determine if collection[i] is falsey
-                if(!collection[i]){
+                if(collection[i] === false){
                     return false;
                 }
             }
         } else {
-             return flag
-        }
-        //else it has
-    } else { //else it's an object
-        //determine if test has not received
-        if (test === undefined){
-            for(var key in collection){
-                if(!collection[key]){
-                    return false
+            for(let key in collection){
+                if(collection[key] === false){
+                    return false;
                 }
-                
             }
-        }else{
-            return true;
         }
-        //else it has
+    
+    } else{ 
+        if(Array.isArray(collection)){
+            for(let i = 0; i < collection.length; i++){
+                if(func(collection[i], i, collection) === false){
+                    return false;
+                }
+            }
+        } else{
+            for(let key in collection){
+                if(func(collection[key], key, collection) === false){
+         
+                    return false;
+                }
+            }
+        }
+    }
+    
+    return true;
 }
-}
+
 
 /** _.some
 * Arguments:
@@ -448,29 +455,40 @@ _.every = function(collection, test){
 
 _.some = function(collection, func){
     //call func if its an array
-    if(Array.isArray(collection)){
-    //check if func value is true with an element
-        for(var i = 0; i < collection.length; i++){
-        let arr = func(collection[i], i, collection);
-            if(arr === true || arr === undefined){
-                return true;
-        }   else{
-                return false;
+    if(func === undefined ){
+        if(Array.isArray(collection)){
+            for(let i = 0; i < collection.length; i++){
+                if(collection[i] === true){
+                    return true;
+                }
+            }
+        } else {
+            for(let key in collection){
+                if(collection[key] === true){
+                    return true;
+                }
+            }
+        }
+    
+    } else{ 
+        if(Array.isArray(collection)){
+            for(let i = 0; i < collection.length; i++){
+                if(func(collection[i], i, collection) === true){
+                    return true;
+                }
+            }
+        } else{
+            for(let key in collection){
+                if(func(collection[key], key, collection) === true){
+         
+                    return true;
+                }
+            }
         }
     }
-    //call func if its an object
-} else{
-    let obj = func(collection[key], i, collection);
-    for(var key in collection){
-        if(obj === true || obj === undefined){
-            return true;
-        } else{
-            return false;
-      }
+    
+    return false;
     }
-  }
-
-}
 
 //check if func value is true with an element
 //check if false
