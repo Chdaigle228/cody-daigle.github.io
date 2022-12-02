@@ -23,20 +23,22 @@ var _ = require('underbar');
 
 var maleCount = function(array) {
  let males = _.filter(array, function(customer){
-})
-
+    return customer.gender === "male";
+    }); return males.length;
+}
 var femaleCount = function(array){
     let females = _.reduce(array, function(accumulator, current){
             //determine if current object has a gender of female
             if(current.gender === 'female'){
-                return accumulator + 1; //0 +1
+                //return adding 1
+                return accumulator + 1; //0 + 1
             }else {
                 return accumulator
             }
                 //if true, add 1 to acumulator
-    }, 0) //seed value is 0 => number of female customers
+    }, 0);                 //seed value is 0 => number of female customers
     return females;
-}
+    }
 /*
 //invoke reduce
 //result = 0
@@ -48,14 +50,15 @@ var femaleCount = function(array){
 */
 
 var oldestCustomer = function(array){
-let oldest = reduce(array, function(accumulator, current){
+let oldest = _.reduce(array, function(accumulator, current){
     if(accumulator.age > current.age){ // if 37 > 26
         return accumulator; // return accumulator
     }else {
         return current
-    }
-    }); // => {oldest customer}
-}; //return the name of the oldest customer object
+        
+     }// => {youngest customer}
+    }); return oldest.name;
+}; //return the name of the youngest customer object
 
 
 /*
@@ -70,11 +73,22 @@ invoke reduce without the seed starting at the first index
 
  */
 
-var youngestCustomer;
+var youngestCustomer = function(array){
+let kid = _.reduce(array, function(accumulator, current){
+    if(accumulator.age < current.age){ 
+        return accumulator; // return accumulator
+    }else {
+        return current
+        
+     }// => {oldest customer}
+    }); return kid.name;
+}; //return the name of the oldest customer object
 
-var averageBalance;
-letStr = balance.replace('$', '') // can use regular expression (/[$]/g, "")
+var averageBalance = function(array){
 //cannot access numbers becuase they are strings in the file. Remove symbols with .replace(item to be removed, item to take place)
+let avg = balance.replace(/$/g, ""); // can use regular expression (/[$]/g, "")
+  
+}
 var firstLetterCount;
 
 var friendFirstLetterCount;
