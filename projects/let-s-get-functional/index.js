@@ -85,10 +85,15 @@ let kid = _.reduce(array, function(accumulator, current){
 }; //return the name of the oldest customer object
 
 var averageBalance = function(array){
-//cannot access numbers becuase they are strings in the file. Remove symbols with .replace(item to be removed, item to take place)
-let avg = balance.replace(/$/g, ""); // can use regular expression (/[$]/g, "")
-  
-}
+    //cannot access numbers becuase they are strings in the file. Remove symbols with .replace(item to be removed, item to take place)
+    const sum = _.reduce(function(accumulator, currentValue){
+        return accumulator += currentValue
+    }, 0); 
+        avg = sum / array.length;
+        flt = sum.replace(/[$]/g, "");
+        return parseFloat(flt);
+};
+//  npm start --prefix ./cody-daigle.github.io/projects/let-s-get-functional
 var firstLetterCount;
 
 var friendFirstLetterCount;
