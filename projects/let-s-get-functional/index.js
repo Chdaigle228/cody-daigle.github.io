@@ -78,31 +78,61 @@ let kid = _.reduce(array, function(accumulator, current){
     if(accumulator.age < current.age){ 
         return accumulator; // return accumulator
     }else {
-        return current
+        return current;
         
      }// => {oldest customer}
     }); return kid.name;
 }; //return the name of the oldest customer object
-
-var averageBalance = function(array){
-    //cannot access numbers becuase they are strings in the file. Remove symbols with .replace(item to be removed, item to take place)
-    const sum = _.reduce(function(accumulator, currentValue){
-        return accumulator += currentValue
-    }, 0); 
-        avg = sum / array.length;
-        flt = sum.replace(/[$]/g, "");
-        return parseFloat(flt);
+//cannot access numbers becuase they are strings in the file. Remove symbols with .replace(item to be removed, item to take place)
+var averageBalance = function(array){ 
+    var sum = _.reduce(array, function(acc, curr){
+      var bal = curr['balance'].replace(/[$,]/g, "");
+      var flt = parseFloat(bal);
+        return acc + flt;
+    }, 0);
+    var avg = sum / array.length;
+    return avg;
 };
 //  npm start --prefix ./cody-daigle.github.io/projects/let-s-get-functional
-var firstLetterCount;
+var firstLetterCount = function(array, letter){
+    var char = _.reduce(array, function(acc, curr){
+        var firstChar = curr['name'].toUpperCase().startsWith(letter.toUpperCase()); //firstChar = the first letter of every name
+        return acc + firstChar;
+    }, 0);
+    return char; //return the number of first characters
+};
+//Find how many friends of a given customer have names that start with a given letter
+function friendFirstLetterCount(array, customer, letter) {
+      //filter through the customers and match names
+  const filtered = array.filter(cust => cust.name === customer)[0];
+  //account for no friends.
+  if (!filtered){
+    return 0;
+    //filter through friends
+  } return filtered['friends'].filter(friend => friend['name'].toUpperCase().startsWith(letter.toUpperCase())).length;
+} 
+// npm start --prefix ./cody-daigle.github.io/projects/let-s-get-functional
 
-var friendFirstLetterCount;
+//Find the customers' names that have a given customer's name in their friends list
+var friendsCount = function(array, name){
+      //filter through the customers and match names
+      const filtered = array.filter(cust => cust.friends === name);
+      //account for no friends.
+      if (!filtered){
+        return 0;
+        //filter through friends
+      } return customer.filtered
+    
+};
 
-var friendsCount;
+var topThreeTags = function(array){
+    
+}
 
-var topThreeTags;
-
-var genderCount;
+var genderCount = function(array){
+    const sex = array.reduce((acc, curr) => {
+    }, 0)
+}
 
 //////////////////////////////////////////////////////////////////////
 // DON'T REMOVE THIS CODE ////////////////////////////////////////////
