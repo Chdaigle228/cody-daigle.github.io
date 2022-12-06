@@ -2,7 +2,7 @@
 // range ///////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function range(start, end, step=1) {
+function range(start, end, step = 1){
   let arr = [];
  if (step > 0) {
     for (var i = start; i <= end; i += step){
@@ -12,22 +12,8 @@ function range(start, end, step=1) {
     for (var i = start; i >= end; i += step){
         arr.push(i);
     }
-  }
-  return arr;
+  } return arr;
  }
-
-
-//   let arr = [];
-//   if (start > end){
-//       for (let i = start; i >= end; i--){
-//           arr.push(i);
-//       }
-//   } else {
-//       for (let i = start; i <= end; i++){
-//           arr.push(i);
-//       } 
-//   } return arr;
-// }
 
 
 ////////////////////////////////////////////////////////////////////////////////
