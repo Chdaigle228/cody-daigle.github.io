@@ -115,15 +115,17 @@ function friendFirstLetterCount(array, customer, letter) {
 
 //Find the customers' names that have a given customer's name in their friends list
 var friendsCount = function(array, name){
-   
-      //filter through the customers and match names
-      const customer = array.filter(customer => customer['friends'].name);
-    var filterName = customer + friends.name;
-      return filterName//['friends'].filter(friend => friend.name);
-    }
-
-
-
+      const friend = array.filter((customer) => {
+        if(customer['friends'].includes(name)){
+            friend.filter((customer) => {
+                return customer.name;
+            });
+            if(!friend){
+                return 0;
+            }
+        }
+      }); return friend;
+}
 var topThreeTags = function(array){
     
 }
