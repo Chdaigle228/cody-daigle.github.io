@@ -115,23 +115,31 @@ function friendFirstLetterCount(array, customer, letter) {
 
 //Find the customers' names that have a given customer's name in their friends list
 var friendsCount = function(array, name){
+   
       //filter through the customers and match names
-      const filtered = array.filter(cust => cust.friends === name);
-      //account for no friends.
-      if (!filtered){
-        return 0;
-        //filter through friends
-      } return customer.filtered
-    
-};
+      const customer = array.filter(customer => customer['friends'].name);
+    var filterName = customer + friends.name;
+      return filterName//['friends'].filter(friend => friend.name);
+    }
+
+
 
 var topThreeTags = function(array){
     
 }
 
 var genderCount = function(array){
-    const sex = array.reduce((acc, curr) => {
-    }, 0)
+    var sex = {};
+    return array.reduce((acc, curr) => {
+        if(curr.gender === 'male'){
+            acc.male++;
+        } else if(curr.gender === 'female'){
+            acc.female++;
+        } else {
+            acc.nonbinary++
+        }
+    }, 0);
+    return sex;
 }
 
 //////////////////////////////////////////////////////////////////////
