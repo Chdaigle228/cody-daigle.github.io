@@ -131,18 +131,25 @@ var topThreeTags = function(array){
 }
 
 var genderCount = function(array){
-    var sex = {};
-    return array.reduce((acc, curr) => {
+    var sex = {
+                male: 0,
+                female: 0,
+                'non-binary': 0
+        };
+    _.reduce(array, function(acc, curr){
         if(curr.gender === 'male'){
-            acc.male++;
+            sex.male += 1;
         } else if(curr.gender === 'female'){
-            acc.female++;
-        } else {
-            acc.nonbinary++
+            sex.female += 1;    
+        } else{
+            sex['non-binary'] += 1;
         }
-    }, 0);
+    }, 0); 
+    
     return sex;
 }
+
+// npm start --prefix ./cody-daigle.github.io/projects/let-s-get-functional
 
 //////////////////////////////////////////////////////////////////////
 // DON'T REMOVE THIS CODE ////////////////////////////////////////////

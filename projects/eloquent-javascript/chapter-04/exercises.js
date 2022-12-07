@@ -2,18 +2,72 @@
 // range ///////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function range(start, end, step = 1){
-  let arr = [];
- if (step > 0) {
-    for (var i = start; i <= end; i += step){
-        arr.push(i);
-    }  
-  }else {
-    for (var i = start; i >= end; i += step){
-        arr.push(i);
+function range(start, end, step=1){ 
+  let rangeArray=[];
+  if(step>0){
+    for(var i=start; i<=end; i+=step){
+      rangeArray.push(i);
     }
-  } return arr;
- }
+  }
+  else if(step<0) {
+    for(var i=start; i>=end; i+=step){
+      rangeArray.push(i);
+    }
+  }
+  else {
+     for(var i=start; i<=end; i++){
+      rangeArray.push(i);
+    }    
+  }
+  return rangeArray;
+}
+  //   let rangeArray=[];
+  //   for(let i=start; i<=end; i++){
+  //    rangeArray.push(i);
+  //   }
+  //   return rangeArray;
+  //  }
+  // console.log(range(1, 10));
+  // // → [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+  // sum = (numbersArray) => {
+  //  let sum=0;
+  //   numbersArray.forEach((i)=>{
+  //    sum+=i;
+  //   })
+  //   return sum;
+  // }
+  // console.log(sum(range(1, 10)));
+  // // → 55
+  // range = (start,end,step) => {
+  //   let rangeArray=[];
+  //   if(step>0){
+  //     for(var i=start; i<=end; i+=step){
+  //       rangeArray.push(i);
+  //     }
+  //   }
+  //   else if(step<0) {
+  //     for(var i=start; i>=end; i+=step){
+  //       rangeArray.push(i);
+  //     }
+  //   }
+  //   else {
+  //      for(var i=start; i<=end; i++){
+  //       rangeArray.push(i);
+  //     }    
+  //   }
+  //   return rangeArray;
+  // }
+// let array = [];
+
+//   if (step > 0) {
+//     for (var i = start; i <= end; i += step)
+//       array.push(i);
+//   } else {
+//     for (var i = start; i >= end; i += step)
+//       array.push(i);
+//   }
+//   return array;
+// }
 
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -21,7 +75,20 @@ function range(start, end, step = 1){
 ////////////////////////////////////////////////////////////////////////////////
 
 function sum() {
-
+  let arr=[];
+  for(var i=start; i<=end; i++){
+   arr.push(i);
+  }
+  return arr;
+ }
+console.log(range(1, 10));
+// → [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+sum = (nums) => {
+ let sum=0;
+  nums.forEach((i)=>{
+   sum+=i;
+  })
+  return sum;
 }
 
 ////////////////////////////////////////////////////////////////////////////////

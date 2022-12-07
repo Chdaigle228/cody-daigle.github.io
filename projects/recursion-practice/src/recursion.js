@@ -66,8 +66,34 @@ var sumBelow = function(n) {
 
 // 6. Get the integers in range (x, y).
 // Example:  range(2, 9);  // [3, 4, 5, 6, 7, 8]
-var range = function(x, y) {
-};
+var range = function(x, y, store=[]) {
+  //base
+  if(x > y){
+    if(x > y){
+      if(x === y){
+      return store;
+    }else {
+      store.push(x - 1)
+      return range(x - 1, y)
+      }
+    }
+    }if(x < y){
+      if(x < y){
+        if(x === y){
+          return store;
+      }else {
+        store.push(x - 1)
+      return range(x - 1, y)
+      }
+    }
+  }
+  //recursion
+}
+//   var store = [];
+//   if(x > y){
+//     store.push(x-1);
+//   }
+// };
 
 // 7. Compute the exponent of a number.
 // The exponent of a number says how many times the base number is used as a factor.
