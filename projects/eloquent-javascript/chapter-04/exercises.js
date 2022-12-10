@@ -2,72 +2,18 @@
 // range ///////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function range(start, end, step=1){ 
-  let rangeArray=[];
-  if(step>0){
-    for(var i=start; i<=end; i+=step){
-      rangeArray.push(i);
-    }
-  }
-  else if(step<0) {
-    for(var i=start; i>=end; i+=step){
-      rangeArray.push(i);
-    }
-  }
-  else {
-     for(var i=start; i<=end; i++){
-      rangeArray.push(i);
-    }    
-  }
-  return rangeArray;
-}
-  //   let rangeArray=[];
-  //   for(let i=start; i<=end; i++){
-  //    rangeArray.push(i);
-  //   }
-  //   return rangeArray;
-  //  }
-  // console.log(range(1, 10));
-  // // → [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-  // sum = (numbersArray) => {
-  //  let sum=0;
-  //   numbersArray.forEach((i)=>{
-  //    sum+=i;
-  //   })
-  //   return sum;
-  // }
-  // console.log(sum(range(1, 10)));
-  // // → 55
-  // range = (start,end,step) => {
-  //   let rangeArray=[];
-  //   if(step>0){
-  //     for(var i=start; i<=end; i+=step){
-  //       rangeArray.push(i);
-  //     }
-  //   }
-  //   else if(step<0) {
-  //     for(var i=start; i>=end; i+=step){
-  //       rangeArray.push(i);
-  //     }
-  //   }
-  //   else {
-  //      for(var i=start; i<=end; i++){
-  //       rangeArray.push(i);
-  //     }    
-  //   }
-  //   return rangeArray;
-  // }
-// let array = [];
+function range(start, end, num=1){ 
 
-//   if (step > 0) {
-//     for (var i = start; i <= end; i += step)
-//       array.push(i);
-//   } else {
-//     for (var i = start; i >= end; i += step)
-//       array.push(i);
-//   }
-//   return array;
-// }
+let arr = [];
+
+  if (num > 0) {
+    for (var i = start; i <= end; i += num)
+      arr.push(i);
+  } else {
+    for (var i = start; i >= end; i += num)
+      arr.push(i);
+  } return arr;
+}
 
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -95,8 +41,22 @@ sum = (nums) => {
 // reverseArray ////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function reverseArray() {
-
+function reverseArray(arr) {
+  let reverse = [];
+for(var i = arr.length - 1; i > arrayToList.length; i--){
+  reverse.push(arr[i])
+  }
+  return reverse;
+}
+reverseArrayInPlace = (arr) => {
+  let count=0;
+  for(let i=0; i<=Math.floor(arr.length/2); i++){
+    var ascendingEl= arr[i];
+ 
+    arr[i] = arr[arr.length-1-i]
+    arr[arr.length-1-i]=ascendingEl;
+  }
+ return arr;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -111,16 +71,46 @@ function reverseArrayInPlace() {
 // arrayToList /////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function arrayToList() {
+var example = [1, 2, 3, 4];
 
+function arrayToList(arr) {
+  let rest = null;
+    for(var i = arr.length - 1; i >= 0; i--){
+      rest = { value: arr[i], rest: rest };
+    }
+    return rest;
 }
+
+arrayToList(example);
+
+/*
+{ 
+  value: 10
+  rest: {
+    value: 20,
+    rest: {
+      value: 30,
+      rest: null
+    }
+  }
+}
+*/
 
 ////////////////////////////////////////////////////////////////////////////////
 // listToArray /////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function listToArray() {
+function listToArray(list, output=[]) {
+  //base
+  if(list.rest === null){
+     output.push(list.value);
+     return output;
+  }
+  //recursion
+  //grab outermost value property and push to output array
+  output.push(list.value);
 
+  return listToArray(list.rest, output)
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -143,10 +133,31 @@ function nth() {
 // deepEqual ///////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function deepEqual() {
-
+function deepEqual(x, y) {
+  //determine if BOTH x & y are simple datatypes
+  if(typeof(x) !== 'object' && typeof(y) !== 'object'){
+    return x === y;
+  }
+  //determine if EITHER x OR y are not an object
+  if(typeof(x) !== 'object' || typeof(y) !== 'object'){
+    return false;
+  }
+  //create arraus of each items keys
+  let xKeys = Object.keys(x);
+  let yKeys = Object.keys(y);
+  //determine if xKeys and yKeys have diff lengths
+  if(xKeys.length !== yKeys.length){ //if different lengths then they are not equal
+    return false;
+  }
+  //itterate through xKeys array
+  for(let i = 0; i < xKeys.length; i++){ //    1                   1
+    if(!yKeys.includes(xKeys[i]) || !deepEqual(x[xKeys[i]], y[yKeys[i]])){
+      return false;
+    }
+  } return true;
 }
-
+// deepEqual(2, 2) //true
+// deepEqual(4, 2) //false
 ////////////////////////////////////////////////////////////////////////////////
 // DON'T REMOVE THIS CODE //////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
