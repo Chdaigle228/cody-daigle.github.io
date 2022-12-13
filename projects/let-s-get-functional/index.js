@@ -133,52 +133,30 @@ var friendsCount = function(array, name){
 
 // Find the three most common tags among all customers' associated tags
 
-function topThreeTags(array){ //     use sort.
-    let result = [];
-        let topTags = array.map(function(item){
-            item.tags.forEach(function(item){
-                if(item === item){
-                    result.push(item)
-        }
-    });
-  }); 
-  result.sort(topTags);
-    return result;
+function topThreeTags(array){
+    // collect every tag into one location
+    let tag = [];
+    //loop over customers array of objects
+    for(let i = 0; i < array.length; i++){
+      //loop through customer's tags
+        for( let r = 0; r < array[i].tags.length; r++){
+            //current tag at each iteration pushed to []
+            tag.push(array[i][r]);
+    }
+     //create tag variable
+    let topTags = {}; //will have every tag every time it appears
+        //iterate through all tags
+        for (let i = 0; i < tag.length; i++){
+            
+        //determine if the current tag already exists in tag
+            if(topTags.hasOwnProperty(tag[i])){
+              
+              }else { //else it does not
+                topTags.push(tag[i]);
+      }
+    }
+  } return topTags;
 }
-//     let result = [];
-//         let topTags = array.map((ele) => {
-//             ele.tags.forEach((ele) => {
-//                 if(ele === ele){
-//                     result.push(ele)
-//         }
-//     });
-//   }); 
-//   result.sort();
-//     return result;
-// }
-//     // collect every tag into one data structure
-//     let tags = [];
-//     for(let i = 0; i < array.length; i++){
-//       //loop through customer's tags
-//       tags = array[i].tags;
-//       for( let r = 0; r < tags.length; r++){
-//         allTags.push(tags[r]); //current tag at each iteration pushed to []
-//       }
-//      //first step to get an array of all tags
-   
-//     //create tagsObj variable
-//     let tagsObj = {}; //will have every tag every time it appears
-//     //iterate through all tags
-//     for (let i = 0; i < allTags.length; i++){
-//     //determine if the cirrent tag already exists in countObj
-//       if(tagsObj[allTags[i]]){ //same as countObj['lorem']
-//         tagsObj[allTags[i]] += 1;
-//       }else { //else it does not}
-//         tagsObj[allTags[i]] = 1;
-//       }
-//     } 
-//   }return tagsObj;
-// }
 // npm start --prefix ./cody-daigle.github.io/projects/let-s-get-functional
 
 var genderCount = function(array){
