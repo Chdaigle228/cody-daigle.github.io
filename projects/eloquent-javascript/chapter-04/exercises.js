@@ -2,15 +2,19 @@
 // range ///////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function range(start, end, num=1){ 
+function range(start, end, num){ 
 
 let arr = [];
-
-  if (num > 0) {
-    for (var i = start; i <= end; i += num)
+if(start === end){
+return arr;
+} if(num !== undefined){
+ if(num < 0){
+  return arr;
+ }
+   for (var i = start; i <= end; i += num)
       arr.push(i);
   } else {
-    for (var i = start; i >= end; i += num)
+    for (var i = start; i <= end; i ++)
       arr.push(i);
   } return arr;
 }
@@ -28,7 +32,7 @@ function sum() {
   return arr;
  }
 console.log(range(1, 10));
-// → [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
 sum = (nums) => {
  let sum=0;
   nums.forEach((i)=>{
@@ -43,28 +47,28 @@ sum = (nums) => {
 
 function reverseArray(arr) {
   let reverse = [];
-for(var i = arr.length - 1; i > arrayToList.length; i--){
+for(var i = arr.length - 1; i >= 0; i--){
   reverse.push(arr[i])
   }
   return reverse;
 }
-reverseArrayInPlace = (arr) => {
-  let count=0;
-  for(let i=0; i<=Math.floor(arr.length/2); i++){
-    var ascendingEl= arr[i];
+// reverseArrayInPlace = (arr) => {
+//   let count=0;
+//   for(let i=0; i<=Math.floor(arr.length/2); i++){
+//     var ascendingEl= arr[i];
  
-    arr[i] = arr[arr.length-1-i]
-    arr[arr.length-1-i]=ascendingEl;
-  }
- return arr;
-}
+//     arr[i] = arr[arr.length-1-i]
+//     arr[arr.length-1-i]=ascendingEl;
+//   }
+//  return arr;
+// }
 
 ////////////////////////////////////////////////////////////////////////////////
 // reverseArrayInPlace /////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function reverseArrayInPlace() {
-
+function reverseArrayInPlace(array) {
+return array.reverse();
 }
 
 ////////////////////////////////////////////////////////////////////////////////
