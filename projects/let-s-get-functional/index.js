@@ -146,8 +146,14 @@ function topThreeTags(array){
      //create tag variable
     let topTags = {}; //will have every tag every time it appears
         //iterate through all tags
+        let newArray = tag.map(function(item){
+            item.tag.forEach(function(item){
+                if()
+            })
+        })
         for (let i = 0; i < tag.length; i++){
-            
+            //might need to use map?
+            //need to use sort somewhere
         //determine if the current tag already exists in tag
             if(topTags.hasOwnProperty(tag[i])){
               
