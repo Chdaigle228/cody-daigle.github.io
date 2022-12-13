@@ -115,20 +115,49 @@ function friendFirstLetterCount(array, customer, letter) {
 
 //Find the customers' names that have a given customer's name in their friends list
 var friendsCount = function(array, name){
-      const friend = array.filter((customer) => {
-        if(customer['friends'].includes(name)){
-            friend.filter((customer) => {
-                return customer.name;
-            });
-            if(!friend){
-                return 0;
-            }
+    //create name collection
+    let names = [];
+    //loop over customers array of objects
+   for(var i = 0; i < array.length; i++){ //iterate through customers array
+    //loop over friends array of objects in customers array of objects
+    for(var f = 0; f < array[i].friends.length; f++){ // iterate through the customer's indexes(objects) for the friends array
+        //determine if customer is friends with other customers
+        if(array[i].friends[f].name === name){ //if the customer[i] in friends[f] has a name === to name
+            //push customer's name into names array
+            names.push(array[i].name); //push the customer index's name to array
         }
-      }); return friend;
+     }
+     //return names array
+   } return names;
 }
-var topThreeTags = function(array){
-    
+
+// Find the three most common tags among all customers' associated tags
+
+function topThreeTags(array){ //     use sort. Maybe reverse
+    // collect every tag into one data structure
+    let tags = [];
+    for(let i = 0; i < array.length; i++){
+      //loop through customer's tags
+      tags = array[i].tags;
+      for( let r = 0; r < tags.length; r++){
+        allTags.push(tags[r]); //current tag at each iteration pushed to []
+      }
+     //first step to get an array of all tags
+   
+    //create tagsObj variable
+    let tagsObj = []; //will have every tag every time it appears
+    //iterate through all tags
+    for (let i = 0; i < allTags.length; i++){
+    //determine if the cirrent tag already exists in countObj
+      if(tagsObj[allTags[i]]){ //same as countObj['lorem']
+        tagsObj[allTags[i]] += 1;
+      }else { //else it does not}
+        tagsObj[allTags[i]] = 1;
+      }
+    } 
+  }return tagsObj;
 }
+// npm start --prefix ./cody-daigle.github.io/projects/let-s-get-functional
 
 var genderCount = function(array){
     var sex = {
