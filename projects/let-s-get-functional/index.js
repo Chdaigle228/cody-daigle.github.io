@@ -141,28 +141,37 @@ function topThreeTags(array){
       //loop through customer's tags
         for( let r = 0; r < array[i].tags.length; r++){
             //current tag at each iteration pushed to []
-            tag.push(array[i][r]);
+            tag.push(array[i].tags[r]);
+        }
     }
+  //console.log(tag);
      //create tag variable
     let topTags = {}; //will have every tag every time it appears
         //iterate through all tags
-        let newArray = tag.map(function(item){
-            item.tag.forEach(function(item){
-                if()
-            })
-        })
+    //console.log(topTags);
+     
         for (let i = 0; i < tag.length; i++){
             //might need to use map?
             //need to use sort somewhere
         //determine if the current tag already exists in tag
-            if(topTags.hasOwnProperty(tag[i])){
-              
+            if(topTags[tag[i]]){
+                topTags[tag[i]]++;
               }else { //else it does not
-                topTags.push(tag[i]);
-      }
-    }
-  } return topTags;
-}
+                topTags[tag[i]] = 1;
+        } 
+          //[[a, 1], ]
+         // create new array for sub arrays
+      }    var tagsCount = [];
+              for(var key in topTags){
+              tagsCount.push([key, topTags[key]]);          
+    } var final = tagsCount.sort((a, b) => a[1] - b[1]).slice(-3);
+         return final.flat();
+  }
+
+  // iterate through object, return an array of sub arrays where each array is the key at that object
+
+// topThreeTags(customers);
+// console.log(topThreeTags(customers));
 // npm start --prefix ./cody-daigle.github.io/projects/let-s-get-functional
 
 var genderCount = function(array){
