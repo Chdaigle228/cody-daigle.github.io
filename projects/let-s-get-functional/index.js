@@ -151,27 +151,32 @@ function topThreeTags(array){
     //console.log(topTags);
      
         for (let i = 0; i < tag.length; i++){
-            //might need to use map?
-            //need to use sort somewhere
         //determine if the current tag already exists in tag
             if(topTags[tag[i]]){
                 topTags[tag[i]]++;
-              }else { //else it does not
+            }else { //else it does not
                 topTags[tag[i]] = 1;
         } 
-          //[[a, 1], ]
-         // create new array for sub arrays
-      }    var tagsCount = [];
+            //create new array for sub arrays
+      }     var tagsCount = [];
               for(var key in topTags){
-              tagsCount.push([key, topTags[key]]);          
-    } var final = tagsCount.sort((a, b) => a[1] - b[1]).slice(-3);
-         return final.flat();
+                tagsCount.push([key, topTags[key]]);          
+    } var final = tagsCount.sort(function(a, b){
+           return b[1] - a[1]
+        });
+        var done = [];
+         for(var q = 0; q < 3; q++){
+            done.push(final[q][0]);
+         }
+         return done;
   }
 
-  // iterate through object, return an array of sub arrays where each array is the key at that object
 
-// topThreeTags(customers);
-// console.log(topThreeTags(customers));
+topThreeTags(customers);
+console.log(topThreeTags(customers));
+
+
+
 // npm start --prefix ./cody-daigle.github.io/projects/let-s-get-functional
 
 var genderCount = function(array){
