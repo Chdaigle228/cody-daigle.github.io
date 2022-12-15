@@ -160,10 +160,10 @@ function topThreeTags(array){
             //create new array for sub arrays
       }     var tagsCount = [];
               for(var key in topTags){
-                tagsCount.push([key, topTags[key]]);          
-    } var final = tagsCount.sort(function(a, b){
-           return b[1] - a[1]
-        });
+                tagsCount.push([key, topTags[key]]); 
+              } var final = tagsCount.sort((a, b) =>{
+                return b[1] - a[1]
+             });         
         var done = [];
          for(var q = 0; q < 3; q++){
             done.push(final[q][0]);
